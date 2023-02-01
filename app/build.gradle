@@ -38,6 +38,9 @@ android {
 
 dependencies {
 
+    project(":library")
+    project(":players-in-court")
+
     implementation Dependencies.Android.CORE
     implementation Dependencies.Android.APP_COMPAT
     implementation Dependencies.Android.MATERIAL

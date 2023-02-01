@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "SHA - Scout Handball App"
 include ':app'
 include ':library'
+include ':players-in-court'
