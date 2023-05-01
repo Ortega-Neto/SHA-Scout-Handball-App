@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.view.MainActivity">
+    tools:context=".presentation.view.MainFeaturesFragment">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerViewMain"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMainFeatures"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/main_features_list_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

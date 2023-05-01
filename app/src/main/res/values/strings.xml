@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SHA - Scout Handball App</string>
+    <string name="match_history">Histórico de Partidas</string>
+    <string name="new_game">Novo Jogo</string>
 </resources>
