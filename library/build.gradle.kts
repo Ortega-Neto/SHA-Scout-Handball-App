@@ -5,6 +5,8 @@ import config.TestDependencies
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -22,10 +24,6 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
         }
     }
     compileOptions {
@@ -43,12 +41,26 @@ android {
 
 dependencies {
 
+    // Android
     implementation(Dependencies.Android.CORE)
     implementation(Dependencies.Android.APP_COMPAT)
     implementation(Dependencies.Android.MATERIAL)
     implementation(Dependencies.Android.CONSTRAINT_LAYOUT)
     api(Dependencies.Android.VIEW_BINDING)
     api(Dependencies.Android.DATA_BINDING)
+    api(Dependencies.Android.NAVIGATION)
+
+    // Room
+    implementation(Dependencies.RoomDataBase.ROOM)
+    implementation(Dependencies.RoomDataBase.ROOM_RUNTME)
+    annotationProcessor(Dependencies.RoomDataBase.ROOM_COMPILER)
+    kapt(Dependencies.RoomDataBase.ROOM_COMPILER)
+
+    // Sweet Alert Dialog
+    api(Dependencies.SweetAlertDialog.SWEET_ALERT)
+
+    // Masked Edit Text
+    api(Dependencies.MaskEditText.MASKED_EDIT_TEXT)
 
     testImplementation(TestDependencies.TestImplementation.JUNIT)
     androidTestImplementation(TestDependencies.AndroidTestImplementation.JUNIT)

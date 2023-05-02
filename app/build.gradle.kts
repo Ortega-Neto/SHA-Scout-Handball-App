@@ -24,10 +24,6 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
         }
     }
 
@@ -46,7 +42,7 @@ android {
 
 dependencies {
     implementation(project(mapOf("path" to ":library")))
-    implementation(project(mapOf("path" to ":players-in-court")))
+    implementation(project(mapOf("path" to ":new-game")))
 
     implementation(Dependencies.Android.CORE)
     implementation(Dependencies.Android.APP_COMPAT)

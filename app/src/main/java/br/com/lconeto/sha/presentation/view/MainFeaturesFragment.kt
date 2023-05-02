@@ -34,7 +34,7 @@ class MainFeaturesFragment :
     }
 
     override fun onMainFeatureClickListener(mainFeature: MainFeature) {
-        print(mainFeature)
+        startActivity(mainFeature.intent)
     }
 
     companion object {

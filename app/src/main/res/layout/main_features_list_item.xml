@@ -8,9 +8,9 @@
 
     <ImageView
         android:id="@+id/imageViewMainFeatureItem"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_margin="12dp"
+        android:layout_width="@dimen/default_icon_size"
+        android:layout_height="@dimen/default_icon_size"
+        android:layout_margin="@dimen/half_default_margin"
         app:layout_constraintBottom_toTopOf="@+id/textViewMainFeatureItem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +19,7 @@
 
     <TextView
         android:id="@+id/textViewMainFeatureItem"
-        android:layout_width="140dp"
+        android:layout_width="@dimen/default_icon_size"
         android:layout_height="wrap_content"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"

@@ -16,16 +16,11 @@ android {
         targetSdk = Config.TARGET_SDK
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
         }
     }
     compileOptions {
@@ -39,12 +34,12 @@ android {
 
 dependencies {
 
-    implementation (Dependencies.Android.CORE)
-    implementation (Dependencies.Android.APP_COMPAT)
-    implementation (Dependencies.Android.MATERIAL)
-    implementation (Dependencies.Android.CONSTRAINT_LAYOUT)
+    implementation(Dependencies.Android.CORE)
+    implementation(Dependencies.Android.APP_COMPAT)
+    implementation(Dependencies.Android.MATERIAL)
+    implementation(Dependencies.Android.CONSTRAINT_LAYOUT)
 
-    testImplementation (TestDependencies.TestImplementation.JUNIT)
-    androidTestImplementation (TestDependencies.AndroidTestImplementation.JUNIT)
-    androidTestImplementation (TestDependencies.AndroidTestImplementation.ESPRESSO)
+    testImplementation(TestDependencies.TestImplementation.JUNIT)
+    androidTestImplementation(TestDependencies.AndroidTestImplementation.JUNIT)
+    androidTestImplementation(TestDependencies.AndroidTestImplementation.ESPRESSO)
 }

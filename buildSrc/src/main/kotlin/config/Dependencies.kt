@@ -9,6 +9,16 @@ object Dependencies {
         const val CONSTRAINT_LAYOUT = "2.1.4"
         const val VIEW_BINDING = "8.0.1"
         const val DATA_BINDING = "8.0.1"
+        const val NAVIGATION = "2.5.3"
+
+        // ROOM
+        const val ROOM = "2.5.1"
+
+        // SweetAlertDialog
+        const val SWEET_ALERT = "1.3"
+
+        // MaskEditText
+        const val MASKED_EDIT_TEXT = "4.0.7"
     }
 
     object Android {
@@ -18,5 +28,20 @@ object Dependencies {
         const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"
         const val VIEW_BINDING = "androidx.databinding:viewbinding:${Versions.VIEW_BINDING}"
         const val DATA_BINDING = "androidx.databinding:databinding-runtime:${Versions.DATA_BINDING}"
+        const val NAVIGATION = "androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}"
+    }
+
+    object RoomDataBase {
+        const val ROOM = "androidx.room:room-ktx:${Versions.ROOM}"
+        const val ROOM_RUNTME = "androidx.room:room-runtime:${Versions.ROOM}"
+        const val ROOM_COMPILER = "androidx.room:room-compiler:${Versions.ROOM}"
+    }
+
+    object SweetAlertDialog {
+        const val SWEET_ALERT = "cn.pedant.sweetalert:library:${Versions.SWEET_ALERT}"
+    }
+
+    object MaskEditText {
+        const val MASKED_EDIT_TEXT = "io.github.vicmikhailau:MaskedEditText:${Versions.MASKED_EDIT_TEXT}"
     }
 }

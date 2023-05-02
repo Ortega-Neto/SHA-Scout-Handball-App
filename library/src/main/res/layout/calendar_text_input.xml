@@ -1,0 +1,29 @@
+<com.google.android.material.textfield.TextInputLayout android:id="@+id/textInputLayout"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:startIconDrawable="@drawable/ic_calendar"
+    app:startIconTint="@color/color_secondary"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/buttonCalendar"
+    app:layout_constraintTop_toTopOf="parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<com.vicmikhailau.maskededittext.MaskedEditText
+    android:id="@+id/editTextInputDate"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:focusable="false"
+    android:gravity="center"
+    android:hint="@string/date"
+    android:inputType="date"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
+    app:layout_constraintStart_toEndOf="@+id/buttonCalendar"
+    app:layout_constraintTop_toTopOf="parent"
+    app:mask="##/##/####" />
+
+</com.google.android.material.textfield.TextInputLayout>
