@@ -46,6 +46,7 @@ dependencies {
     implementation(Dependencies.Android.APP_COMPAT)
     implementation(Dependencies.Android.MATERIAL)
     implementation(Dependencies.Android.CONSTRAINT_LAYOUT)
+    implementation(Dependencies.Android.GSON)
     api(Dependencies.Android.VIEW_BINDING)
     api(Dependencies.Android.DATA_BINDING)
     api(Dependencies.Android.NAVIGATION)
@@ -65,4 +66,6 @@ dependencies {
     testImplementation(TestDependencies.TestImplementation.JUNIT)
     androidTestImplementation(TestDependencies.AndroidTestImplementation.JUNIT)
     androidTestImplementation(TestDependencies.AndroidTestImplementation.ESPRESSO)
+    androidTestImplementation(TestDependencies.AndroidTestImplementation.CORE)
+    androidTestImplementation(TestDependencies.AndroidTestImplementation.CORE_KTX)
 }

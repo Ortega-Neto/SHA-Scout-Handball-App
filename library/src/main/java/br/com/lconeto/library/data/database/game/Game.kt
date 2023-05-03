@@ -11,7 +11,7 @@ import kotlinx.android.parcel.Parcelize
 data class Game(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val time: String,
+    val date: String,
     val hour: String,
     val homeTeam: Team,
     val visitorTeam: Team,
