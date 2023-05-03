@@ -47,9 +47,13 @@ dependencies {
     implementation(Dependencies.Android.MATERIAL)
     implementation(Dependencies.Android.CONSTRAINT_LAYOUT)
     implementation(Dependencies.Android.GSON)
+    implementation(Dependencies.Lifecycle.LIVE_DATA)
+    implementation(Dependencies.Lifecycle.EXTENSIONS)
     api(Dependencies.Android.VIEW_BINDING)
     api(Dependencies.Android.DATA_BINDING)
     api(Dependencies.Android.NAVIGATION)
+
+//    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 
     // Room
     implementation(Dependencies.RoomDataBase.ROOM)
@@ -68,4 +72,5 @@ dependencies {
     androidTestImplementation(TestDependencies.AndroidTestImplementation.ESPRESSO)
     androidTestImplementation(TestDependencies.AndroidTestImplementation.CORE)
     androidTestImplementation(TestDependencies.AndroidTestImplementation.CORE_KTX)
+    androidTestImplementation(TestDependencies.AndroidTestImplementation.COROUTINES)
 }

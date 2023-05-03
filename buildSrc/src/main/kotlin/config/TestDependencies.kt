@@ -6,6 +6,7 @@ object TestDependencies {
         const val ANDROID_TEST_JUNIT = "1.1.5"
         const val ESPRESSO = "3.5.1"
         const val CORE = "1.5.0"
+        const val COROUTINES = "1.6.4"
     }
 
     object TestImplementation {
@@ -17,5 +18,6 @@ object TestDependencies {
         const val ESPRESSO = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO}"
         const val CORE = "androidx.test:core:${Versions.CORE}"
         const val CORE_KTX = "androidx.test:core-ktx:${Versions.CORE}"
+        const val COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.COROUTINES}"
     }
 }

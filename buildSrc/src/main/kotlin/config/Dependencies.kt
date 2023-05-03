@@ -12,6 +12,10 @@ object Dependencies {
         const val DATA_BINDING = "8.0.1"
         const val NAVIGATION = "2.5.3"
 
+        // LifeCycle
+        const val LYFE_CYCLE = "2.6.1"
+        const val LYFE_CYCLE_EXTENSIONS = "2.2.0"
+
         // ROOM
         const val ROOM = "2.5.1"
 
@@ -31,6 +35,12 @@ object Dependencies {
         const val VIEW_BINDING = "androidx.databinding:viewbinding:${Versions.VIEW_BINDING}"
         const val DATA_BINDING = "androidx.databinding:databinding-runtime:${Versions.DATA_BINDING}"
         const val NAVIGATION = "androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}"
+    }
+
+    object Lifecycle {
+        const val VIEW_MODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LYFE_CYCLE}"
+        const val LIVE_DATA = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LYFE_CYCLE}"
+        const val EXTENSIONS = "androidx.lifecycle:lifecycle-extensions:${Versions.LYFE_CYCLE_EXTENSIONS}"
     }
 
     object RoomDataBase {
