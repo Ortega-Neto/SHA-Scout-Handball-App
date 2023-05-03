@@ -7,4 +7,6 @@ interface GameRepository {
     fun getAllGames(): List<Game>
     fun getGameById(gameId: Int): Game
     fun deleteGame(game: Game): Boolean
+    fun finishFirstHalf(game: Game): Boolean
+    fun finishGame(game: Game): Boolean
 }

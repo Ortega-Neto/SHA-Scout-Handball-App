@@ -13,5 +13,5 @@ data class Team(
     val id: Int,
     val name: String,
     val players: List<Player>,
-    val points: Int
+    var points: Int = 0
 ) : Parcelable
