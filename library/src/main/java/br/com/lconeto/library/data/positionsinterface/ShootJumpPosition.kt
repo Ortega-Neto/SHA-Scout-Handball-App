@@ -11,4 +11,5 @@ interface ShootJumpPosition : Serializable {
     val leftBackCourt: Int
     val centerBackCourt: Int
     val rightBackCourt: Int
+    val penalty: Int
 }

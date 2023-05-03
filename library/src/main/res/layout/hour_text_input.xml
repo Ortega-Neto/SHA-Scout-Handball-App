@@ -2,8 +2,6 @@
     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:startIconDrawable="@drawable/ic_calendar"
-    app:startIconTint="@color/color_secondary"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toEndOf="@+id/buttonCalendar"

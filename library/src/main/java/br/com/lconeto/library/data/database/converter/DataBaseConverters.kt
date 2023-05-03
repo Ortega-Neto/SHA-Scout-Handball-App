@@ -7,6 +7,7 @@ import br.com.lconeto.library.data.model.shoot.Shoot
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
+import java.util.Date
 
 class DataBaseConverters {
     private val errorMessage = "Erro ao transoformar classe"

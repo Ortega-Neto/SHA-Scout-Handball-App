@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+    // Plataform
+    implementation(platform(Dependencies.Plataform.BOM))
 
     // Android
     implementation(Dependencies.Android.CORE)
@@ -52,8 +54,6 @@ dependencies {
     api(Dependencies.Android.VIEW_BINDING)
     api(Dependencies.Android.DATA_BINDING)
     api(Dependencies.Android.NAVIGATION)
-
-//    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 
     // Room
     implementation(Dependencies.RoomDataBase.ROOM)

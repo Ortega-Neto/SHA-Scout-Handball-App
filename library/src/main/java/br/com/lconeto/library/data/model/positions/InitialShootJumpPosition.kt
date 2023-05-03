@@ -11,4 +11,5 @@ class InitialShootJumpPosition : ShootJumpPosition {
     override val leftBackCourt: Int = 0
     override val centerBackCourt: Int = 0
     override val rightBackCourt: Int = 0
+    override val penalty: Int = 0
 }

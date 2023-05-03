@@ -1,10 +1,11 @@
 package br.com.lconeto.sha.presentation.view
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import br.com.lconeto.library.presentation.BaseFragment
-import br.com.lconeto.sha.R
 import br.com.lconeto.sha.data.mainfeatures.MainFeaturesList
 import br.com.lconeto.sha.data.model.MainFeature
 import br.com.lconeto.sha.databinding.FragmentMainFeaturesBinding
@@ -12,13 +13,20 @@ import br.com.lconeto.sha.domain.listener.MainFeatureRecyclerViewClickListener
 import br.com.lconeto.sha.presentation.adapter.MainFeaturesAdapter
 
 class MainFeaturesFragment :
-    BaseFragment<FragmentMainFeaturesBinding>(R.layout.fragment_main_features),
+    BaseFragment<FragmentMainFeaturesBinding>(),
     MainFeatureRecyclerViewClickListener {
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initialBinding = FragmentMainFeaturesBinding.bind(view)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentMainFeaturesBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
+    override fun onStart() {
+        super.onStart()
         configureRecyclerView()
     }
 

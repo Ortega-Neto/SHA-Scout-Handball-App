@@ -3,6 +3,10 @@ package config
 object Dependencies {
 
     private object Versions {
+        // Plataform
+        const val BOM = "1.8.0"
+
+        // Android
         const val ANDROID_CORE = "1.9.0"
         const val APP_COMPAT = "1.6.0"
         const val MATERIAL = "1.8.0"
@@ -24,6 +28,10 @@ object Dependencies {
 
         // MaskEditText
         const val MASKED_EDIT_TEXT = "4.0.7"
+    }
+
+    object Plataform {
+        const val BOM = "org.jetbrains.kotlin:kotlin-bom:${Versions.BOM}"
     }
 
     object Android {

@@ -9,12 +9,10 @@ import br.com.lconeto.library.data.session.AppSession.Companion.SESSION
 
 object InitSession {
     operator fun invoke(context: Context) {
-        if(!SESSION.isInitialized) {
-            SESSION = AppSession.Session(
-                isInitialized = true,
-                database = instanceDataBase(context)
-            )
-        }
+        SESSION = AppSession.Session(
+            isInitialized = true,
+            database = instanceDataBase(context)
+        )
     }
 
     private fun instanceDataBase(context: Context): RoomDatabase {
