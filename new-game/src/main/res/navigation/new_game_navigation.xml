@@ -7,7 +7,19 @@
 
     <fragment
         android:id="@+id/gameDatailsFragment"
-        android:name="br.com.lconeto.newgame.presentation.view.GameDetailsFragment"
+        android:name="br.com.lconeto.newgame.presentation.view.gameDetails.GameDetailsFragment"
         android:label="fragment_game_datails"
-        tools:layout="@layout/fragment_game_details" />
+        tools:layout="@layout/fragment_game_details" >
+        <action
+            android:id="@+id/action_gameDatailsFragment_to_homeTeamFragment"
+            app:destination="@id/homeTeamFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeTeamFragment"
+        android:name="br.com.lconeto.newgame.presentation.view.homeTeam.HomeTeamFragment"
+        android:label="HomeTeamFragment" >
+        <argument
+            android:name="gameForm"
+            app:argType="br.com.lconeto.library.data.database.game.Game" />
+    </fragment>
 </navigation>

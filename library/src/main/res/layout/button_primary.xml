@@ -1,0 +1,10 @@
+<Button android:id="@+id/buttonPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ok"
+    android:textStyle="bold"
+    android:background="@drawable/round_button"
+    android:maxLines="1"
+    app:autoSizeTextType="uniform"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" />

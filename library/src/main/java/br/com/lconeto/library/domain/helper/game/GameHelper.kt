@@ -1,4 +1,4 @@
-package br.com.lconeto.library.domain.helper
+package br.com.lconeto.library.domain.helper.game
 
 import br.com.lconeto.library.data.database.game.Game
 import br.com.lconeto.library.data.database.team.Team

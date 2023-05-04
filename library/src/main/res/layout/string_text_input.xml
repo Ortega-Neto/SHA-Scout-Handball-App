@@ -14,7 +14,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:gravity="center"
-    android:inputType="textNoSuggestions|textMultiLine|none"
+    android:inputType="textNoSuggestions|textMultiLine|textCapWords"
     app:autoSizeTextType="uniform" />
 
 </com.google.android.material.textfield.TextInputLayout>

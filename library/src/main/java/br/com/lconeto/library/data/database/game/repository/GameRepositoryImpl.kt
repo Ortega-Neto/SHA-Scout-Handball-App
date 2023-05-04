@@ -2,7 +2,7 @@ package br.com.lconeto.library.data.database.game.repository
 
 import br.com.lconeto.library.data.database.game.Game
 import br.com.lconeto.library.data.database.game.GameDao
-import br.com.lconeto.library.domain.helper.GameHelper
+import br.com.lconeto.library.domain.helper.game.GameHelper
 import kotlinx.coroutines.runBlocking
 
 class GameRepositoryImpl(

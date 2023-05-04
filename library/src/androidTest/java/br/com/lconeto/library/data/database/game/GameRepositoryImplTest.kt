@@ -4,7 +4,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import br.com.lconeto.library.data.common.BaseDataBaseTest
 import br.com.lconeto.library.data.common.game
 import br.com.lconeto.library.data.database.game.repository.GameRepositoryImpl
-import br.com.lconeto.library.domain.helper.GameHelper
+import br.com.lconeto.library.domain.helper.game.GameHelper
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.hamcrest.CoreMatchers.equalTo

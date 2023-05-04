@@ -10,8 +10,8 @@ import kotlinx.android.parcel.Parcelize
 @Entity(tableName = "teams")
 data class Team(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: Int = 0,
     val name: String,
-    val players: List<Player>,
+    val players: List<Player> = emptyList(),
     var points: Int = 0
 ) : Parcelable

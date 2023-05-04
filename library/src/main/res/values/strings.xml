@@ -1,4 +1,7 @@
 <resources>
     <string name="date">Data</string>
     <string name="hour">Hora</string>
+    <string name="advance">Avançar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="ok">Ok</string>
 </resources>
