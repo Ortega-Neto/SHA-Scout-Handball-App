@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import br.com.lconeto.library.presentation.BaseFragment
+import br.com.lconeto.library.presentation.base.BaseFragment
 import br.com.lconeto.sha.data.mainfeatures.MainFeaturesList
 import br.com.lconeto.sha.data.model.MainFeature
 import br.com.lconeto.sha.databinding.FragmentMainFeaturesBinding

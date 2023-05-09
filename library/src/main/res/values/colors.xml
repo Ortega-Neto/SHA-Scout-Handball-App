@@ -8,4 +8,8 @@
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="errorRed">#990000</color>
+
+    <color name="shirt_team_color">#23A6DA</color>
+    <color name="shirt_team_color_text">#FFFFFFFF</color>
 </resources>

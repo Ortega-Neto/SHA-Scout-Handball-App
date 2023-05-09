@@ -1,6 +1,6 @@
 package br.com.lconeto.library.data.model.positions
 
-import br.com.lconeto.library.data.positionsinterface.ShootHitPosition
+import br.com.lconeto.library.data.positionsInterface.ShootHitPosition
 
 class InitialShootHitPosition : ShootHitPosition {
     override val outAboveOutLeft: Int = 0

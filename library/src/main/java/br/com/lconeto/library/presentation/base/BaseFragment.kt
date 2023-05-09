@@ -1,4 +1,4 @@
-package br.com.lconeto.library.presentation
+package br.com.lconeto.library.presentation.base
 
 import androidx.fragment.app.Fragment
 

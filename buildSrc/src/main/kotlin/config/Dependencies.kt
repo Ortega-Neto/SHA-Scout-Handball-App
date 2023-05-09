@@ -28,6 +28,9 @@ object Dependencies {
 
         // MaskEditText
         const val MASKED_EDIT_TEXT = "4.0.7"
+
+        // FloatingActionButton
+        const val FAB = "1.10.1"
     }
 
     object Plataform {
@@ -63,5 +66,9 @@ object Dependencies {
 
     object MaskEditText {
         const val MASKED_EDIT_TEXT = "io.github.vicmikhailau:MaskedEditText:${Versions.MASKED_EDIT_TEXT}"
+    }
+
+    object FloatingActionButton {
+        const val FAB = "com.getbase:floatingactionbutton:${Versions.FAB}"
     }
 }

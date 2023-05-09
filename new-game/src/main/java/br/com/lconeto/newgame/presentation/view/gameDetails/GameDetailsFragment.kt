@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import br.com.lconeto.library.data.database.game.Game
 import br.com.lconeto.library.domain.extensions.setNeedToBeFilledError
 import br.com.lconeto.library.domain.extensions.verifyNullAndSetText
-import br.com.lconeto.library.presentation.BaseFragment
+import br.com.lconeto.library.presentation.base.BaseFragment
 import br.com.lconeto.newgame.R
 import br.com.lconeto.newgame.databinding.FragmentGameDetailsBinding
 import br.com.lconeto.newgame.presentation.view.gameDetails.viewModel.GameDetailsViewModel

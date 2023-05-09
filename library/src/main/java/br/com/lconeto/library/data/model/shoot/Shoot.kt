@@ -1,8 +1,8 @@
 package br.com.lconeto.library.data.model.shoot
 
 import android.os.Parcelable
-import br.com.lconeto.library.data.positionsinterface.ShootHitPosition
-import br.com.lconeto.library.data.positionsinterface.ShootJumpPosition
+import br.com.lconeto.library.data.positionsInterface.ShootHitPosition
+import br.com.lconeto.library.data.positionsInterface.ShootJumpPosition
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize

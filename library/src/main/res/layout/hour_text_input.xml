@@ -2,10 +2,6 @@
     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/buttonCalendar"
-    app:layout_constraintTop_toTopOf="parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -17,10 +13,6 @@
     android:gravity="center"
     android:hint="@string/hour"
     android:inputType="numberDecimal"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
-    app:layout_constraintStart_toEndOf="@+id/buttonCalendar"
-    app:layout_constraintTop_toTopOf="parent"
     app:mask="##h##min" />
 
 </com.google.android.material.textfield.TextInputLayout>

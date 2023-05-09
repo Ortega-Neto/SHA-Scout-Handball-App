@@ -1,4 +1,4 @@
-package br.com.lconeto.library.data.positionsinterface
+package br.com.lconeto.library.data.positionsInterface
 
 import java.io.Serializable
 

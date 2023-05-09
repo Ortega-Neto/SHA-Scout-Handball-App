@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/shirt_layout_width"
+    android:layout_height="@dimen/shirt_layout_height"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/ic_shirt"
+    android:backgroundTint="@color/shirt_team_color"
+    android:layout_margin="@dimen/half_default_margin">
+
+    <TextView
+        android:id="@+id/textViewPlayerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/shirt_margin"
+        android:layout_marginTop="@dimen/shirt_margin_top"
+        android:gravity="center"
+        android:textColor="@color/shirt_team_color_text"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPlayerNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Luiz Carlos Ortega Neto" />
+
+    <TextView
+        android:id="@+id/textViewPlayerNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/shirt_margin"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/shirt_number_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="10"/>
+
+    <TextView
+        android:id="@+id/textViewPlayerPosition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/shirt_margin"
+        android:gravity="center"
+        android:textColor="@color/shirt_team_color_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPlayerNumber"
+        tools:text="Armador Esquerdo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@ import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import br.com.lconeto.library.data.model.shoot.Shoot
-import br.com.lconeto.library.data.positionsinterface.PlayerPosition
+import br.com.lconeto.library.data.positionsInterface.PlayerPosition
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize

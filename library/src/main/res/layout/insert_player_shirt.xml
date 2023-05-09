@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/constraintLayout"
+    android:layout_width="@dimen/insert_shirt_layout_width"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/half_default_margin"
+    android:background="@drawable/ic_shirt"
+    android:backgroundTint="@color/shirt_team_color"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutPlayerName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/insert_shirt_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutPlayerNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/editTextInputPlayerName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:hint="@string/name"
+            android:inputType="textNoSuggestions|textMultiLine|textCapWords"
+            android:textColor="@color/shirt_team_color_text"
+            app:autoSizeTextType="uniform"
+            tools:text="Luiz Carlos Ortega Neto" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutPlayerNumber"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/insert_shirt_margin"
+        android:layout_marginVertical="@dimen/half_default_margin"
+        android:gravity="center"
+        android:textColor="@color/shirt_team_color_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPlayerPosition"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPlayerName">
+
+        <EditText
+            android:id="@+id/editTextInputPlayerNumber"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:hint="@string/number"
+            android:inputType="numberDecimal"
+            android:textColor="@color/shirt_team_color_text"
+            android:textSize="@dimen/shirt_number_size"
+            app:autoSizeTextType="uniform"
+            tools:text="10" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textViewPlayerPosition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/insert_shirt_margin"
+        android:gravity="center"
+        android:textColor="@color/shirt_team_color_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPlayerNumber"
+        android:text="@string/position" />
+</androidx.constraintlayout.widget.ConstraintLayout>

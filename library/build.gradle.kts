@@ -67,6 +67,9 @@ dependencies {
     // Masked Edit Text
     api(Dependencies.MaskEditText.MASKED_EDIT_TEXT)
 
+    // Floating Action Button
+    api(Dependencies.FloatingActionButton.FAB)
+
     testImplementation(TestDependencies.TestImplementation.JUNIT)
     androidTestImplementation(TestDependencies.AndroidTestImplementation.JUNIT)
     androidTestImplementation(TestDependencies.AndroidTestImplementation.ESPRESSO)

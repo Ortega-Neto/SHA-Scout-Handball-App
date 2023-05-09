@@ -3,5 +3,11 @@
     <string name="hour">Hora</string>
     <string name="advance">Avançar</string>
     <string name="confirm">Confirmar</string>
-    <string name="ok">Ok</string>
+    <string name="insert">Inserir</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancelar</string>
+    <string name="number">Num</string>
+    <string name="name">Nome</string>
+    <string name="position">Posição</string>
+    <string name="insert_player">Inserir Jogador</string>
 </resources>
