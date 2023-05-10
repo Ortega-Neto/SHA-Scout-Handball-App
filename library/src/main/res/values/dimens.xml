@@ -12,9 +12,8 @@
     <dimen name="shirt_layout_width">180dp</dimen>
     <dimen name="shirt_layout_height">200dp</dimen>
 
-    <dimen name="insert_shirt_layout_width">300dp</dimen>
-    <dimen name="insert_shirt_layout_height">260dp</dimen>
-    <dimen name="insert_shirt_margin">60dp</dimen>
+    <dimen name="insert_position_layout_width">300dp</dimen>
+    <dimen name="insert_position_layout_height">260dp</dimen>
 
     <dimen name="insert_player_position_button_size">60dp</dimen>
 

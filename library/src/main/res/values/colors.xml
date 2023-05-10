@@ -12,4 +12,6 @@
 
     <color name="shirt_team_color">#23A6DA</color>
     <color name="shirt_team_color_text">#FFFFFFFF</color>
+
+    <color name="dialog_fragment_background">#424242</color>
 </resources>

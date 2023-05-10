@@ -7,7 +7,9 @@
     <string name="ok">OK</string>
     <string name="cancel">Cancelar</string>
     <string name="number">Num</string>
+    <string name="number_complete">Número</string>
     <string name="name">Nome</string>
     <string name="position">Posição</string>
     <string name="insert_player">Inserir Jogador</string>
+    <string name="field_needed">Campo Obrigatório</string>
 </resources>

@@ -21,8 +21,13 @@ fun TextInputLayout.removeErrorAndSetText(
     editText.setText(text)
 }
 
+fun TextInputLayout.removeError() {
+    this.error = null
+    this.isErrorEnabled = false
+}
+
 private const val TEXT_INPUT_LAYOUT_BASE_ERR0R = "Erro ao preencher campo"
-private const val TEXT_INPUT_LAYOUT_NOT_FILLED_ERR0R = "Este campo precisa ser preenchido"
+private const val TEXT_INPUT_LAYOUT_NOT_FILLED_ERR0R = "Campo obrigatório"
 
 fun TextInputLayout.setBaseError() {
     this.error = TEXT_INPUT_LAYOUT_BASE_ERR0R

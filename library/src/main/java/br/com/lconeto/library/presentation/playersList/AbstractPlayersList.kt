@@ -13,7 +13,6 @@ import br.com.lconeto.library.data.database.player.Player
 import br.com.lconeto.library.databinding.FragmentPlayersListBinding
 import br.com.lconeto.library.domain.listener.PlayersListRecyclerViewClickListener
 import br.com.lconeto.library.presentation.base.BaseFragment
-import br.com.lconeto.library.presentation.playersList.adapter.PlayersListAdapter
 import br.com.lconeto.library.presentation.playersList.dialog.DialogInsertPlayer
 import br.com.lconeto.library.presentation.playersList.viewModel.TeamListViewModel
 import br.com.lconeto.library.presentation.playersList.viewModel.TeamListViewModelFactory
@@ -55,7 +54,7 @@ abstract class AbstractPlayersList :
         binding.floatingActionButtonAddPlayer.setOnClickListener {
             _dialogInsertPlayer = DialogInsertPlayer()
             _dialogInsertPlayer.show(childFragmentManager, "DialogInsertPlayer")
-            _dialogInsertPlayer.insertPlayer.observe(viewLifecycleOwner){
+            _dialogInsertPlayer.insertPlayer.observe(viewLifecycleOwner) {
                 print("a")
             }
         }

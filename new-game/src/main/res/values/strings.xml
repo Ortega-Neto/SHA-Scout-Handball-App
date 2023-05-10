@@ -1,6 +1,4 @@
 <resources>
     <string name="home_team">Time da Casa</string>
     <string name="visitor_team">Time Visitante</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

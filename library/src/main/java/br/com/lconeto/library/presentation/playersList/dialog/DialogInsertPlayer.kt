@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,6 +12,9 @@ import br.com.lconeto.library.R
 import br.com.lconeto.library.data.database.player.Player
 import br.com.lconeto.library.data.positionsInterface.PlayerPosition
 import br.com.lconeto.library.databinding.DialogInsertPlayerBinding
+import br.com.lconeto.library.domain.extensions.removeError
+import br.com.lconeto.library.domain.extensions.setNeedToBeFilledError
+import com.google.android.material.textfield.TextInputLayout
 
 class DialogInsertPlayer : DialogFragment() {
 
@@ -19,6 +23,8 @@ class DialogInsertPlayer : DialogFragment() {
 
     val insertPlayer: LiveData<Player> get() = _insertPlayer
     private val _insertPlayer = MutableLiveData<Player>()
+
+    private lateinit var playerPosition: PlayerPosition
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,9 +58,9 @@ class DialogInsertPlayer : DialogFragment() {
     }
 
     private fun subscribeUi() {
-        binding.buttonInsertPlayerCancel.buttonCancel.setOnClickListener {
-            dismiss()
-        }
+        binding.buttonInsertPlayer.buttonPrimary.setOnClickListener { checkPlayerInserts() }
+
+        binding.buttonInsertPlayerCancel.buttonCancel.setOnClickListener { dismiss() }
 
         binding.viewCourt.buttonInsertPlayerPositionGK.setOnClickListener {
             setPositionAtShirt(PlayerPosition.GOAL_KEEPER)
@@ -86,6 +92,54 @@ class DialogInsertPlayer : DialogFragment() {
     }
 
     private fun setPositionAtShirt(position: PlayerPosition) {
-        binding.viewShirt.textViewPlayerPosition.text = position.value
+        binding.viewShirt.editTextInputPlayerPosition.setText(position.value)
+        playerPosition = position
+    }
+
+    private fun checkPlayerInserts() {
+        binding.viewShirt.textInputLayoutPlayerName.removeError()
+        binding.viewShirt.textInputLayoutPlayerNumber.removeError()
+        binding.viewShirt.textInputLayoutPlayerPosition.removeError()
+
+        val checkName = checkPlayerInsert(
+            textInputLayout = binding.viewShirt.textInputLayoutPlayerName,
+            editText = binding.viewShirt.editTextInputPlayerName
+        )
+
+        val checkNumber = checkPlayerInsert(
+            textInputLayout = binding.viewShirt.textInputLayoutPlayerNumber,
+            editText = binding.viewShirt.editTextInputPlayerNumber
+        )
+
+        val checkPosition = checkPlayerInsert(
+            textInputLayout = binding.viewShirt.textInputLayoutPlayerPosition,
+            editText = binding.viewShirt.editTextInputPlayerPosition
+        )
+
+        if (checkName && checkNumber && checkPosition) {
+            _insertPlayer.postValue(
+                Player(
+                    id = 0,
+                    name = binding.viewShirt.editTextInputPlayerName.text.toString(),
+                    number = binding.viewShirt.editTextInputPlayerNumber.text.toString().toInt(),
+                    position = playerPosition
+                )
+            )
+            dismiss()
+        }
+    }
+
+    private fun checkPlayerInsert(
+        textInputLayout: TextInputLayout,
+        editText: EditText
+    ): Boolean {
+        return if (
+            editText.text.toString().isEmpty()
+        ) {
+            textInputLayout.setNeedToBeFilledError()
+            false
+        } else {
+            true
+        }
     }
 }
