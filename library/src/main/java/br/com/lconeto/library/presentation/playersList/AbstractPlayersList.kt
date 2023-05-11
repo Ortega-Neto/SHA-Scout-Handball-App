@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import br.com.lconeto.library.R
 import br.com.lconeto.library.data.database.player.Player
 import br.com.lconeto.library.databinding.FragmentPlayersListBinding
+import br.com.lconeto.library.domain.extensions.toastAddPlayerMessage
 import br.com.lconeto.library.domain.listener.PlayersListRecyclerViewClickListener
 import br.com.lconeto.library.presentation.base.BaseFragment
+import br.com.lconeto.library.presentation.playersList.adapter.PlayersListAdapter
 import br.com.lconeto.library.presentation.playersList.dialog.DialogInsertPlayer
 import br.com.lconeto.library.presentation.playersList.viewModel.TeamListViewModel
 import br.com.lconeto.library.presentation.playersList.viewModel.TeamListViewModelFactory
@@ -29,6 +31,7 @@ abstract class AbstractPlayersList :
     val finishedEdition: LiveData<Boolean> get() = _finishedEdition
 
     private lateinit var _dialogInsertPlayer: DialogInsertPlayer
+    private lateinit var _playersListAdapter: PlayersListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,6 +44,8 @@ abstract class AbstractPlayersList :
 
     override fun onStart() {
         super.onStart()
+
+        viewModel.initializePositionHashMap()
         setupUi()
         subscribeUi()
         configureRecyclerView()
@@ -55,7 +60,7 @@ abstract class AbstractPlayersList :
             _dialogInsertPlayer = DialogInsertPlayer()
             _dialogInsertPlayer.show(childFragmentManager, "DialogInsertPlayer")
             _dialogInsertPlayer.insertPlayer.observe(viewLifecycleOwner) {
-                print("a")
+                viewModel.addPlayer(it)
             }
         }
 
@@ -65,12 +70,22 @@ abstract class AbstractPlayersList :
         viewModel.allPositionsInsert.observe(viewLifecycleOwner) {
             if (it) _finishedEdition.postValue(true)
         }
+
+        viewModel.playerInserted.observe(viewLifecycleOwner) {
+            _playersListAdapter.notifyItemInserted(it)
+            toastAddPlayerMessage()
+        }
     }
 
     private fun configureRecyclerView() {
+        _playersListAdapter = PlayersListAdapter(
+            players = viewModel.enteredPlayers,
+            listenerPlayersList = this
+        )
         binding.recyclerViewPlayers.also {
             it.layoutManager = GridLayoutManager(requireContext(), 2)
             it.setHasFixedSize(true)
+            it.adapter = _playersListAdapter
         }
     }
 

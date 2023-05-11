@@ -11,6 +11,7 @@
     <color name="errorRed">#990000</color>
 
     <color name="shirt_team_color">#23A6DA</color>
+    <color name="shirt_goal_keeper_color">#D4153B</color>
     <color name="shirt_team_color_text">#FFFFFFFF</color>
 
     <color name="dialog_fragment_background">#424242</color>

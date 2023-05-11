@@ -3,7 +3,9 @@ package br.com.lconeto.library.presentation.playersList.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import br.com.lconeto.library.R
 import br.com.lconeto.library.data.database.player.Player
+import br.com.lconeto.library.data.positionsInterface.PlayerPosition
 import br.com.lconeto.library.databinding.PlayersListItemBinding
 import br.com.lconeto.library.domain.listener.PlayersListRecyclerViewClickListener
 
@@ -16,6 +18,9 @@ class PlayersListAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(player: Player) {
+            if (player.position == PlayerPosition.GOAL_KEEPER) {
+                binding.constraintLayoutShirt.setBackgroundResource(R.drawable.ic_shirt_goal_keeper)
+            }
             binding.textViewPlayerName.text = player.name
             binding.textViewPlayerNumber.text = player.number.toString()
             binding.textViewPlayerPosition.text = player.position.value
