@@ -16,7 +16,9 @@ import br.com.lconeto.library.domain.extensions.removeError
 import br.com.lconeto.library.domain.extensions.setNeedToBeFilledError
 import com.google.android.material.textfield.TextInputLayout
 
-class DialogInsertPlayer : DialogFragment() {
+class DialogInsertPlayer(
+    private val player: Player? = null
+) : DialogFragment() {
 
     private var _binding: DialogInsertPlayerBinding? = null
     private val binding: DialogInsertPlayerBinding get() = _binding!!
@@ -54,7 +56,13 @@ class DialogInsertPlayer : DialogFragment() {
     }
 
     private fun setupUi() {
-        binding.buttonInsertPlayer.buttonPrimary.setText(R.string.insert)
+        player?.let {
+            binding.viewPlayerFields.editTextInputPlayerName.setText(it.name)
+            binding.viewPlayerFields.editTextInputPlayerNumber.setText(it.number.toString())
+            setPositionAtShirt(it.position)
+
+            binding.buttonInsertPlayer.buttonPrimary.setText(R.string.update)
+        } ?: binding.buttonInsertPlayer.buttonPrimary.setText(R.string.insert)
     }
 
     private fun subscribeUi() {
@@ -92,36 +100,36 @@ class DialogInsertPlayer : DialogFragment() {
     }
 
     private fun setPositionAtShirt(position: PlayerPosition) {
-        binding.viewShirt.editTextInputPlayerPosition.setText(position.value)
+        binding.viewPlayerFields.editTextInputPlayerPosition.setText(position.value)
         playerPosition = position
     }
 
     private fun checkPlayerInserts() {
-        binding.viewShirt.textInputLayoutPlayerName.removeError()
-        binding.viewShirt.textInputLayoutPlayerNumber.removeError()
-        binding.viewShirt.textInputLayoutPlayerPosition.removeError()
+        binding.viewPlayerFields.textInputLayoutPlayerName.removeError()
+        binding.viewPlayerFields.textInputLayoutPlayerNumber.removeError()
+        binding.viewPlayerFields.textInputLayoutPlayerPosition.removeError()
 
         val checkName = checkPlayerInsert(
-            textInputLayout = binding.viewShirt.textInputLayoutPlayerName,
-            editText = binding.viewShirt.editTextInputPlayerName
+            textInputLayout = binding.viewPlayerFields.textInputLayoutPlayerName,
+            editText = binding.viewPlayerFields.editTextInputPlayerName
         )
 
         val checkNumber = checkPlayerInsert(
-            textInputLayout = binding.viewShirt.textInputLayoutPlayerNumber,
-            editText = binding.viewShirt.editTextInputPlayerNumber
+            textInputLayout = binding.viewPlayerFields.textInputLayoutPlayerNumber,
+            editText = binding.viewPlayerFields.editTextInputPlayerNumber
         )
 
         val checkPosition = checkPlayerInsert(
-            textInputLayout = binding.viewShirt.textInputLayoutPlayerPosition,
-            editText = binding.viewShirt.editTextInputPlayerPosition
+            textInputLayout = binding.viewPlayerFields.textInputLayoutPlayerPosition,
+            editText = binding.viewPlayerFields.editTextInputPlayerPosition
         )
 
         if (checkName && checkNumber && checkPosition) {
             _insertPlayer.postValue(
                 Player(
                     id = 0,
-                    name = binding.viewShirt.editTextInputPlayerName.text.toString(),
-                    number = binding.viewShirt.editTextInputPlayerNumber.text.toString().toInt(),
+                    name = binding.viewPlayerFields.editTextInputPlayerName.text.toString(),
+                    number = binding.viewPlayerFields.editTextInputPlayerNumber.text.toString().toInt(),
                     position = playerPosition
                 )
             )

@@ -20,7 +20,7 @@
             android:textSize="24sp"/>
 
         <include
-            android:id="@+id/viewShirt"
+            android:id="@+id/viewPlayerFields"
             layout="@layout/insert_player_fields"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             app:layout_constraintBottom_toTopOf="@+id/buttonInsertPlayer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewShirt" />
+            app:layout_constraintTop_toBottomOf="@+id/viewPlayerFields" />
 
         <include
             android:id="@+id/buttonInsertPlayer"
@@ -54,8 +54,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/default_margin"
-            android:text="@string/cancel"
-            android:textStyle="bold"
             android:background="@drawable/round_button_error"
             android:backgroundTint="@color/errorRed"
             app:layout_constraintBottom_toBottomOf="parent" />

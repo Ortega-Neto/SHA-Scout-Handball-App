@@ -41,3 +41,15 @@ fun Fragment.toastAddPlayerMessage() {
         message = "Jogador adicionado na lista"
     )
 }
+
+fun Fragment.toastEditedPlayerMessage() {
+    this.toastShortMessage(
+        message = "Jogador editado"
+    )
+}
+
+fun Fragment.toastDeletedPlayerMessage() {
+    this.toastShortMessage(
+        message = "Jogador excluído da lista"
+    )
+}

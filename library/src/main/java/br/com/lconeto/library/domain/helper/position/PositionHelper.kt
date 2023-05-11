@@ -5,5 +5,6 @@ import br.com.lconeto.library.data.positionsInterface.PlayerPosition
 interface PositionHelper {
     fun initializePositionHashMap()
     fun addPositionToHashMap(selectedPosition: PlayerPosition)
+    fun removePositionInHashMap(selectedPosition: PlayerPosition)
     fun verifyPositionHashMap(): Boolean
 }

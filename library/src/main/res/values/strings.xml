@@ -3,9 +3,12 @@
     <string name="hour">Hora</string>
     <string name="advance">Avançar</string>
     <string name="confirm">Confirmar</string>
+    <string name="update">Atualizar</string>
     <string name="insert">Inserir</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancelar</string>
+    <string name="edit">Editar</string>
+    <string name="delet">Deletar</string>
     <string name="number">Num</string>
     <string name="number_complete">Número</string>
     <string name="name">Nome</string>

@@ -12,10 +12,13 @@ import br.com.lconeto.library.R
 import br.com.lconeto.library.data.database.player.Player
 import br.com.lconeto.library.databinding.FragmentPlayersListBinding
 import br.com.lconeto.library.domain.extensions.toastAddPlayerMessage
+import br.com.lconeto.library.domain.extensions.toastDeletedPlayerMessage
+import br.com.lconeto.library.domain.extensions.toastEditedPlayerMessage
 import br.com.lconeto.library.domain.listener.PlayersListRecyclerViewClickListener
 import br.com.lconeto.library.presentation.base.BaseFragment
 import br.com.lconeto.library.presentation.playersList.adapter.PlayersListAdapter
 import br.com.lconeto.library.presentation.playersList.dialog.DialogInsertPlayer
+import br.com.lconeto.library.presentation.playersList.dialog.DialogOptionsPlayer
 import br.com.lconeto.library.presentation.playersList.viewModel.TeamListViewModel
 import br.com.lconeto.library.presentation.playersList.viewModel.TeamListViewModelFactory
 
@@ -75,6 +78,16 @@ abstract class AbstractPlayersList :
             _playersListAdapter.notifyItemInserted(it)
             toastAddPlayerMessage()
         }
+
+        viewModel.playerEdited.observe(viewLifecycleOwner) {
+            _playersListAdapter.notifyItemChanged(it)
+            toastEditedPlayerMessage()
+        }
+
+        viewModel.playerDeleted.observe(viewLifecycleOwner) {
+            _playersListAdapter.notifyItemRemoved(it)
+            toastDeletedPlayerMessage()
+        }
     }
 
     private fun configureRecyclerView() {
@@ -89,11 +102,22 @@ abstract class AbstractPlayersList :
         }
     }
 
-    override fun onPlayerClickListener(player: Player) {
+    override fun onPlayerClickListener(id: Int, player: Player) {
+        val dialogOptionsPlayer = DialogOptionsPlayer()
+        dialogOptionsPlayer.show(childFragmentManager, "DialogOptionsPlayer")
+        dialogOptionsPlayer.editPlayer.observe(viewLifecycleOwner) {
+            editPlayer(id, player)
+        }
+        dialogOptionsPlayer.deletePlayer.observe(viewLifecycleOwner) {
+            viewModel.deletePlayer(id, player)
+        }
     }
 
-//    it.adapter = PlayersListAdapter(
-//    MainFeaturesList(requireContext()),
-//    this
-//    )
+    private fun editPlayer(id: Int, player: Player) {
+        _dialogInsertPlayer = DialogInsertPlayer(player)
+        _dialogInsertPlayer.show(childFragmentManager, "DialogEditPlayer")
+        _dialogInsertPlayer.insertPlayer.observe(viewLifecycleOwner) {
+            viewModel.editPlayer(id, it)
+        }
+    }
 }

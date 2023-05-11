@@ -21,6 +21,10 @@ class PositionHelperImpl : PositionHelper {
         positions[selectedPosition] = true
     }
 
+    override fun removePositionInHashMap(selectedPosition: PlayerPosition) {
+        positions[selectedPosition] = false
+    }
+
     override fun verifyPositionHashMap(): Boolean {
         positions.forEach {
             if (!it.value) return false

@@ -40,7 +40,8 @@ class PlayersListAdapter(
 
         holder.itemView.setOnClickListener {
             listenerPlayersList.onPlayerClickListener(
-                players[position]
+                id = position,
+                player = players[position]
             )
         }
     }
