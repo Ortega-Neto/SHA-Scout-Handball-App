@@ -79,7 +79,6 @@
             android:gravity="center"
             android:hint="@string/position"
             android:focusable="false"
-            android:clickable="false"
             android:inputType="textNoSuggestions|textMultiLine"
             app:autoSizeTextType="uniform" />
 

@@ -15,4 +15,8 @@
     <string name="position">Posição</string>
     <string name="insert_player">Inserir Jogador</string>
     <string name="field_needed">Campo Obrigatório</string>
+
+    <!--  Error  -->
+    <string name="error_not_all_positions">O time precisa ter ao menos um jogador em cada posição</string>
+    <string name="error_number_already_insert">Esse número já esta sendo utilizado por outro jogador</string>
 </resources>

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import br.com.lconeto.library.data.database.game.Game
+import br.com.lconeto.library.domain.extensions.getFormattedCurrentDate
 import br.com.lconeto.library.domain.extensions.setNeedToBeFilledError
 import br.com.lconeto.library.domain.extensions.verifyNullAndSetText
 import br.com.lconeto.library.presentation.base.BaseFragment
@@ -47,6 +48,10 @@ class GameDetailsFragment : BaseFragment<FragmentGameDetailsBinding>() {
 
         binding.buttonAdvanceGameDetails.buttonPrimary.setText(
             br.com.lconeto.library.R.string.advance
+        )
+
+        binding.textInputGameDate.editTextInputDate.setText(
+            getFormattedCurrentDate()
         )
     }
 

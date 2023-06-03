@@ -1,13 +1,15 @@
 package br.com.lconeto.library.data.positionsInterface
 
-import java.io.Serializable
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-enum class PlayerPosition(val value: String) : Serializable {
+@Parcelize
+enum class PlayerPosition(val value: String) : Parcelable {
     GOAL_KEEPER("Goleiro"),
     LEFT_WING("Ponta Esquerda"),
     PIVOT("Pivô"),
     RIGHT_WING("Ponta Direita"),
     LEFT_BACK_COURT("Armador Esquerdo"),
-    RIGHT_BACK_COURT("Armador Central"),
-    CENTER_BACK_COURT("Armador Direito")
+    CENTER_BACK_COURT("Armador Central"),
+    RIGHT_BACK_COURT("Armador Direito")
 }

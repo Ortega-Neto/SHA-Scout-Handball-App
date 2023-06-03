@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.lconeto.library.data.database.player.Player
-import br.com.lconeto.library.data.positionsInterface.PlayerPosition
 import br.com.lconeto.library.domain.helper.position.PositionHelper
 
 class TeamListViewModel(
@@ -41,21 +40,9 @@ class TeamListViewModel(
     fun deletePlayer(id: Int, player: Player) {
         enteredPlayers.remove(player)
 
-        if (checkToRemovePositionInHashMap(player.position)) {
-            positionHelper.removePositionInHashMap(player.position)
-        }
+        positionHelper.removePositionInHashMap(player.position)
 
         _playerDeleted.postValue(id)
-    }
-
-    private fun checkToRemovePositionInHashMap(position: PlayerPosition): Boolean {
-        var remove = true
-
-        enteredPlayers.forEach {
-            remove = it.position == position
-        }
-
-        return remove
     }
 
     fun initializePositionHashMap() {
@@ -66,5 +53,14 @@ class TeamListViewModel(
         _allPositionsInsert.postValue(
             positionHelper.verifyPositionHashMap()
         )
+    }
+
+    fun getEnteredNumbers(): List<Int> {
+        val enteredNumbers = mutableListOf<Int>()
+        enteredPlayers.forEach {
+            enteredNumbers.add(it.number)
+        }
+
+        return enteredNumbers
     }
 }

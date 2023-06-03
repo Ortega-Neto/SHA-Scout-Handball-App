@@ -14,6 +14,7 @@ import br.com.lconeto.library.databinding.FragmentPlayersListBinding
 import br.com.lconeto.library.domain.extensions.toastAddPlayerMessage
 import br.com.lconeto.library.domain.extensions.toastDeletedPlayerMessage
 import br.com.lconeto.library.domain.extensions.toastEditedPlayerMessage
+import br.com.lconeto.library.domain.extensions.toastLongMessage
 import br.com.lconeto.library.domain.listener.PlayersListRecyclerViewClickListener
 import br.com.lconeto.library.presentation.base.BaseFragment
 import br.com.lconeto.library.presentation.playersList.adapter.PlayersListAdapter
@@ -22,7 +23,7 @@ import br.com.lconeto.library.presentation.playersList.dialog.DialogOptionsPlaye
 import br.com.lconeto.library.presentation.playersList.viewModel.TeamListViewModel
 import br.com.lconeto.library.presentation.playersList.viewModel.TeamListViewModelFactory
 
-abstract class AbstractPlayersList :
+abstract class AbstractPlayersListFragment :
     BaseFragment<FragmentPlayersListBinding>(),
     PlayersListRecyclerViewClickListener {
 
@@ -30,8 +31,8 @@ abstract class AbstractPlayersList :
         TeamListViewModelFactory
     }
 
-    private val _finishedEdition by lazy { MutableLiveData<Boolean>() }
-    val finishedEdition: LiveData<Boolean> get() = _finishedEdition
+    private val _finishedInsertingPlayers by lazy { MutableLiveData<Boolean>() }
+    val finishedInsertingPlayers: LiveData<Boolean> get() = _finishedInsertingPlayers
 
     private lateinit var _dialogInsertPlayer: DialogInsertPlayer
     private lateinit var _playersListAdapter: PlayersListAdapter
@@ -60,7 +61,9 @@ abstract class AbstractPlayersList :
 
     private fun subscribeUi() {
         binding.floatingActionButtonAddPlayer.setOnClickListener {
-            _dialogInsertPlayer = DialogInsertPlayer()
+            _dialogInsertPlayer = DialogInsertPlayer(
+                enteredNumbers = viewModel.getEnteredNumbers()
+            )
             _dialogInsertPlayer.show(childFragmentManager, "DialogInsertPlayer")
             _dialogInsertPlayer.insertPlayer.observe(viewLifecycleOwner) {
                 viewModel.addPlayer(it)
@@ -68,10 +71,17 @@ abstract class AbstractPlayersList :
         }
 
         binding.buttonTeamListFinishedEdition.buttonPrimary.setOnClickListener {
+            viewModel.verifyIfAllPositionHadAtLeastOneInsert()
         }
 
         viewModel.allPositionsInsert.observe(viewLifecycleOwner) {
-            if (it) _finishedEdition.postValue(true)
+            if (it) {
+                _finishedInsertingPlayers.postValue(true)
+            } else {
+                toastLongMessage(
+                    getString(R.string.error_not_all_positions)
+                )
+            }
         }
 
         viewModel.playerInserted.observe(viewLifecycleOwner) {
@@ -114,7 +124,10 @@ abstract class AbstractPlayersList :
     }
 
     private fun editPlayer(id: Int, player: Player) {
-        _dialogInsertPlayer = DialogInsertPlayer(player)
+        _dialogInsertPlayer = DialogInsertPlayer(
+            enteredNumbers = viewModel.getEnteredNumbers(),
+            player = player
+        )
         _dialogInsertPlayer.show(childFragmentManager, "DialogEditPlayer")
         _dialogInsertPlayer.insertPlayer.observe(viewLifecycleOwner) {
             viewModel.editPlayer(id, it)

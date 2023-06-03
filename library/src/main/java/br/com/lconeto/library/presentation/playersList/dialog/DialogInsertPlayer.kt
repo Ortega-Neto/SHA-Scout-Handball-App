@@ -12,11 +12,18 @@ import br.com.lconeto.library.R
 import br.com.lconeto.library.data.database.player.Player
 import br.com.lconeto.library.data.positionsInterface.PlayerPosition
 import br.com.lconeto.library.databinding.DialogInsertPlayerBinding
+import br.com.lconeto.library.domain.extensions.hideKeyboard
 import br.com.lconeto.library.domain.extensions.removeError
+import br.com.lconeto.library.domain.extensions.setDrawable
 import br.com.lconeto.library.domain.extensions.setNeedToBeFilledError
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class DialogInsertPlayer(
+    private val enteredNumbers: List<Int>,
     private val player: Player? = null
 ) : DialogFragment() {
 
@@ -66,6 +73,11 @@ class DialogInsertPlayer(
     }
 
     private fun subscribeUi() {
+        binding.viewPlayerFields.editTextInputPlayerPosition.setOnClickListener {
+            binding.root.hideKeyboard()
+            courtImageFocus()
+        }
+
         binding.buttonInsertPlayer.buttonPrimary.setOnClickListener { checkPlayerInserts() }
 
         binding.buttonInsertPlayerCancel.buttonCancel.setOnClickListener { dismiss() }
@@ -124,7 +136,14 @@ class DialogInsertPlayer(
             editText = binding.viewPlayerFields.editTextInputPlayerPosition
         )
 
-        if (checkName && checkNumber && checkPosition) {
+        val checkIfNumberIsValid = checkIfNumberIsAlreadyInsert(
+            textInputLayout = binding.viewPlayerFields.textInputLayoutPlayerNumber,
+            editText = binding.viewPlayerFields.editTextInputPlayerNumber
+        )
+
+        val checkedNumber = checkNumber && checkIfNumberIsValid
+
+        if (checkName && checkPosition && checkedNumber) {
             _insertPlayer.postValue(
                 Player(
                     id = 0,
@@ -149,5 +168,38 @@ class DialogInsertPlayer(
         } else {
             true
         }
+    }
+
+    private fun checkIfNumberIsAlreadyInsert(
+        textInputLayout: TextInputLayout,
+        editText: EditText
+    ): Boolean {
+        val number = editText.text.toString().toInt()
+        return if (enteredNumbers.contains(number)) {
+            textInputLayout.error = getString(R.string.error_number_already_insert)
+            false
+        } else {
+            true
+        }
+    }
+
+    private fun courtImageFocus() {
+        CoroutineScope(Dispatchers.Main).launch {
+            binding.viewCourt.root.setDrawable(
+                context = requireContext(),
+                R.drawable.ic_half_court_players_border
+            )
+
+            delay(DELAY_TIME)
+
+            binding.viewCourt.root.setDrawable(
+                context = requireContext(),
+                R.drawable.ic_half_court_players
+            )
+        }
+    }
+
+    private companion object {
+        private const val DELAY_TIME: Long = 300
     }
 }
